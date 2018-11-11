@@ -1,0 +1,22 @@
+#content{
+    width:500px;
+    background:green;
+    padding:10px;
+    border-radius:5px;
+    float:left;
+}
+ul{
+    list-style: none;
+}
+li{
+    margin-bottom:20px;
+    width:400px;
+}
+li input{
+    float:right;
+    width:250px;
+}
+#message{
+    float:left;
+    width:500px;
+}

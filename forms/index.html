@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Forms</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="content">
+        <form method="POST" action="check.php" enctype="multipart/form-data">
+            <ul>
+            
+            <li><label>Имя<input type="text" name="fname"></label></li>
+            <li><label>Фамилия<input type="text" name="sname"></label></li>
+            <li><label>Отчество<input type="text" name="pname"></label></li>
+            <li><label>Email<input type="text" name="email"></label></li>
+            <li><label>Комментарий<input type="text" name="comment"></label></li>
+            <li><label>Телефон<input type="text" name="phone"></label></li>
+            <li><label>Файл<input type="file" name="file"></label></li>
+            <li><button id="submit">отправить</button></li>
+        </form>
+            
+        </div>
+        <div id="message">
+                <ul id="massege-ul">
+                </ul>
+            </div>
+        <script src="js.js">
+        </script>    
+    </body>
+</html>
