@@ -37,10 +37,25 @@ function emailValidate($string, &$errors){
         array_push($errors, "email заполнен не корректно");
     }
 }
-function phoneValidate($phone, &$errors){
-    if(!preg_match("/^\+?[7|8|9][0-9]{6,10}$/", $phone)){
-        array_push($errors, "телефон заполнен не коректно");
+function phoneValidate($val, &$errors)
+{
+    if (empty($val)) {
+        array_push($errors, 'правильный формат номера телефона +79249999999');
     }
+
+    if (!preg_match('/^\+?\d{10,15}$/', $val)) {
+        array_push($errors, 'правильный формат номера телефона +79249999999');
+    }
+
+    if (
+        (mb_substr($val, 0, 2) == '+7' and mb_strlen($val) == 12) ||
+        (mb_substr($val, 0, 1) == '7'  and mb_strlen($val) == 11) ||
+        (mb_substr($val, 0, 1) == '8'  and mb_strlen($val) == 11) ||
+        (mb_substr($val, 0, 1) == '9'  and mb_strlen($val) == 11)
+    ) {
+        return true;
+    }
+    array_push($errors,'правильный формат номера телефона +79249999999');
 }
 function fileValidate($file, &$errors){
     if(empty($file)){

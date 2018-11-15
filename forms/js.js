@@ -84,13 +84,33 @@ function emailValidate(string){
     }
     
 }
-function phoneValidate(string){
-    if(string.match(/^\+?[7|8|9][0-9]{6,10}$/)){
-        return true;
-    }else{
-        errors.push("телефон заполнен не коректно");
+function phoneValidate(arg)
+{
+    if(!arg.match(/[0-9+]/g)){
+        errors.push('правильный формат номера телефона +79999999999');
         return false;
     }
+    var phone = arg.match(/[0-9+]/g).join('');
+    if (phone.length === 0) {
+        errors.push('правильный формат номера телефона +79999999999');
+        return false;
+    }
+    
+
+    if (!phone.match(/^\+?\d{10,15}$/)) {
+        errors.push('правильный формат номера телефона +79999999999');
+        return false;
+    }
+
+    if (
+        (phone.slice(0, 2) === '+7' && phone.length === 12) ||
+        (phone.slice(0, 1) === '7'  && phone.length === 11) ||
+        (phone.slice(0, 1) === '8'  && phone.length === 11) ||
+        (phone.slice(0, 1) === '9'  && phone.length === 10)) {
+        return true;
+    }
+    errors.push('правильный формат номера телефона +79999999999');
+    return false;
 }
 function fileValidate(arg){
     if(arg){
